@@ -10,7 +10,7 @@ const stepsConfig = [
 ];
 
 export default function ProcessingSteps({ isProcessing, onComplete }) {
-  const [activeStep, setActiveStep] = useState(0); // 0 means not started
+  const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function ProcessingSteps({ isProcessing, onComplete }) {
     const interval = setInterval(() => {
       setCompletedSteps((prev) => [...prev, current]);
       current += 1;
-      
+
       if (current <= stepsConfig.length) {
         setActiveStep(current);
       } else {
@@ -78,9 +78,9 @@ export default function ProcessingSteps({ isProcessing, onComplete }) {
               </div>
               <span className="font-bold text-[11px] uppercase tracking-wider leading-snug">{step.text}</span>
             </div>
+          );
         })}
       </div>
     </div>
   );
 }
-
