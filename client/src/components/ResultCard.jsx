@@ -123,8 +123,8 @@ export default function ResultCard({ complaint }) {
           <span className="text-text-dim text-[10px] font-bold uppercase tracking-wider">
             AI-generated ticket. Campus Administration has been notified.
           </span>
-        </div>
       </div>
+    </div>
   );
 }
 

@@ -78,8 +78,9 @@ export default function ProcessingSteps({ isProcessing, onComplete }) {
               </div>
               <span className="font-bold text-[11px] uppercase tracking-wider leading-snug">{step.text}</span>
             </div>
-          );
         })}
+      </div>
+    </div>
   );
 }
 
