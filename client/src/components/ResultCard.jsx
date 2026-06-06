@@ -125,7 +125,6 @@ export default function ResultCard({ complaint }) {
           </span>
         </div>
       </div>
-    </div>
   );
 }
-}
+

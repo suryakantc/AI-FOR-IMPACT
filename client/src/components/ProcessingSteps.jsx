@@ -80,8 +80,6 @@ export default function ProcessingSteps({ isProcessing, onComplete }) {
             </div>
           );
         })}
-      </div>
-    </div>
   );
 }
-}
+
