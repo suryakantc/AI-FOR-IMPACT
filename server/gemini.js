@@ -59,6 +59,10 @@ function parseAndValidate(raw) {
   const fenceMatch = cleaned.match(/```(?:json)?\s*([\s\S]*?)```/);
   if (fenceMatch) cleaned = fenceMatch[1].trim();
 
+  // strip any preamble/postamble — extract the first { ... } block
+  const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
+  if (jsonMatch) cleaned = jsonMatch[0].trim();
+
   const parsed = JSON.parse(cleaned);
 
   return {
@@ -83,7 +87,7 @@ async function callGemini(rawText) {
     generationConfig: {
       responseMimeType: 'application/json',
       temperature: 0.2,
-      maxOutputTokens: 500
+      maxOutputTokens: 2048
     }
   });
 

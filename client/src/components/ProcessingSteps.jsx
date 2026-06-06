@@ -43,12 +43,12 @@ export default function ProcessingSteps({ isProcessing, onComplete }) {
   if (!isProcessing) return null;
 
   return (
-    <div className="w-full bg-surface-card border border-surface-border rounded-[20px] p-6 shadow-xl animate-fade-in">
-      <h3 className="text-lg font-extrabold font-heading text-text mb-6 flex items-center gap-2">
-        <Loader2 className="w-5 h-5 animate-spin text-primary" />
+    <div className="w-full glass-card rounded-[24px] p-6 shadow-2xl animate-fade-in border border-surface-border">
+      <h3 className="text-sm font-bold font-heading text-text uppercase tracking-widest mb-6 flex items-center gap-2">
+        <Loader2 className="w-5 h-5 animate-spin text-primary-light" />
         Processing Complaint...
       </h3>
-      <div className="flex flex-wrap md:flex-nowrap items-stretch gap-3 w-full">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 w-full">
         {stepsConfig.map((step) => {
           const isCompleted = completedSteps.includes(step.id);
           const isActive = activeStep === step.id;
@@ -57,12 +57,12 @@ export default function ProcessingSteps({ isProcessing, onComplete }) {
           return (
             <div
               key={step.id}
-              className={`flex items-center gap-3 p-4 rounded-xl border transition-all duration-300 flex-1 min-w-[140px] ${
+              className={`flex items-center gap-3 p-4 rounded-xl border transition-all duration-300 ${
                 isActive
-                  ? 'bg-surface-hover border-primary/55 text-text shadow-[0_0_12px_rgba(124,58,237,0.15)]'
+                  ? 'bg-surface-hover/80 border-primary/60 text-text shadow-[0_0_15px_rgba(124,58,237,0.2)]'
                   : isCompleted
-                  ? 'bg-surface-card border-success/25 text-text-muted opacity-80'
-                  : 'bg-surface-card border-surface-border text-text-dim'
+                  ? 'bg-success/5 border-success/30 text-text-muted opacity-90'
+                  : 'bg-surface/30 border-surface-border text-text-dim'
               }`}
             >
               <div className="flex items-center justify-center w-6 h-6 shrink-0">
@@ -71,16 +71,17 @@ export default function ProcessingSteps({ isProcessing, onComplete }) {
                     <Check className="w-3.5 h-3.5" />
                   </div>
                 ) : isActive ? (
-                  <Loader2 className="w-4.5 h-4.5 animate-spin text-primary" />
+                  <Loader2 className="w-4.5 h-4.5 animate-spin text-primary-light" />
                 ) : (
-                  <div className="w-2 h-2 rounded-full bg-text-dim/40" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-text-dim/40" />
                 )}
               </div>
-              <span className="font-semibold text-xs leading-snug">{step.text}</span>
+              <span className="font-bold text-[11px] uppercase tracking-wider leading-snug">{step.text}</span>
             </div>
           );
         })}
       </div>
     </div>
   );
+}
 }

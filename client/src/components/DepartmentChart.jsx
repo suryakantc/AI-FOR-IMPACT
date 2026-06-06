@@ -26,16 +26,20 @@ export default function DepartmentChart({ data }) {
       <h3 className="text-sm font-semibold text-text-muted uppercase tracking-wider mb-6">
         Complaints by Department
       </h3>
-      <div className="h-64">
+      <div className="h-72">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+          <BarChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 50 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#1f1f2e" vertical={false} />
             <XAxis
               dataKey="name"
               stroke="#64748b"
-              fontSize={11}
+              fontSize={10}
               tickLine={false}
               axisLine={false}
+              angle={-35}
+              textAnchor="end"
+              interval={0}
+              tickFormatter={(v) => v.length > 14 ? v.slice(0, 12) + '…' : v}
             />
             <YAxis
               stroke="#64748b"

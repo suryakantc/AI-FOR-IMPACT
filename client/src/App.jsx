@@ -55,7 +55,7 @@ function Navbar() {
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-surface">
+      <div className="min-h-screen flex flex-col bg-deep-radial">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -64,7 +64,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/submit" replace />} />
           </Routes>
         </main>
-        <footer className="border-t border-surface-border py-6 text-center text-text-dim text-xs">
+        <footer className="border-t border-surface-border/50 py-6 text-center text-text-dim text-xs">
           © {new Date().getFullYear()} CampusFlow AI Systems. All rights reserved.
         </footer>
       </div>
